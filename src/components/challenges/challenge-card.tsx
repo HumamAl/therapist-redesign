@@ -1,0 +1,49 @@
+import type { ReactNode } from "react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { OutcomeStatement } from "./outcome-statement";
+
+interface ChallengeCardChallenge {
+  id: string;
+  title: string;
+  description: string;
+  outcome?: string;
+}
+
+interface ChallengeCardProps {
+  challenge: ChallengeCardChallenge;
+  index: number;
+  visualization?: ReactNode;
+}
+
+export function ChallengeCard({
+  challenge,
+  index,
+  visualization,
+}: ChallengeCardProps) {
+  const stepNumber = String(index + 1).padStart(2, "0");
+
+  return (
+    <Card
+      className="linear-card border-primary/10 bg-gradient-to-br from-accent/5 to-background animate-fade-in"
+      style={{ animationDelay: `${index * 80}ms`, animationDuration: "200ms" }}
+    >
+      <CardHeader>
+        <div className="flex items-baseline gap-3">
+          <span className="font-mono text-sm font-medium text-primary/70 w-6 shrink-0 tabular-nums">
+            {stepNumber}
+          </span>
+          <h3 className="text-lg font-semibold">{challenge.title}</h3>
+        </div>
+        <p className="text-sm text-muted-foreground pl-[calc(1.5rem+0.75rem)]">
+          {challenge.description}
+        </p>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {visualization}
+        {challenge.outcome && (
+          <OutcomeStatement outcome={challenge.outcome} index={index} />
+        )}
+      </CardContent>
+    </Card>
+  );
+}
