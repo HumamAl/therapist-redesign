@@ -2,7 +2,7 @@ Hi Javonna,
 
 Took your current AttractWell site and rebuilt the experience to show what a modern, HIPAA-aware therapist website looks like:
 
-**Built this for your project:** {VERCEL_URL}
+**Built this for your project:** https://therapist-redesign.vercel.app
 
 The demo includes your full service lineup, client inquiry management, session scheduling, and content pages — all designed to feel warm and values-driven, not clinical. Mobile-first with secure intake forms baked in.
 
